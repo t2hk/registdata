@@ -1,5 +1,32 @@
-class MetaDataForm {
-  constructor () {
+export const state = () => ({
+  registForm: ''
+})
+
+export const mutations = {
+  setRegistForm (state, form) {
+    console.log('call setRegistForm: ', form)
+    state.registForm = form
+  },
+  clearRegistForm () {
+    console.log('call clearRegistForm')
+    state.registForm = null
+  }
+}
+
+/**
+export const state = () => ({
+  metaDataName: '',
+  samplePictFilePath: '',
+  samplePictFile: '',
+  samplePictPreview: '',
+  registrarEmail: '',
+  imagePictFilePath: '',
+  imagePictFile: '',
+  imagePictPreview: ''
+})
+
+export const mutations = {
+  clear: function () {
     this.metaDataName = ''
     this.samplePictFilePath = ''
     this.samplePictFile = ''
@@ -8,57 +35,35 @@ class MetaDataForm {
     this.imagePictFilePath = ''
     this.imagePictFile = ''
     this.imagePictPreview = ''
-  }
+  },
 
-  clear () {
-    this.metaDataName = ''
-    this.samplePictFilePath = ''
-    this.samplePictFile = ''
-    this.samplePictPreview = ''
-    this.registrarEmail = ''
-    this.imagePictFilePath = ''
-    this.imagePictFile = ''
-    this.imagePictPreview = ''
-  }
-
-  setForm (form) {
-    this.metaDataName = form.metaDataName
-    this.samplePictFilePath = form.samplePictFilePath
-    this.samplePictFile = form.samplePictFile
-    this.samplePictPreview = form.samplePictPreview
-    this.registrarEmail = form.registrarEmail
-    this.imagePictFilePath = form.imagePictFilePath
-    this.imagePictFile = form.imagePictFile
-    this.imagePictPreview = form.imagePictPreview
-  }
-
-  setMetaDataName (metaDataName) {
+  setMetaDataName: function (metaDataName) {
     this.metaDataName = metaDataName
-  }
+  },
 
-  setRegistrarEmail (registrarEmail) {
+  setRegistrarEmail: function (registrarEmail) {
     this.registrarEmail = registrarEmail
-  }
+  },
 
-  setSamplePictFile (samplePictFileName, samplePictFile) {
+  setSamplePictFile: function (samplePictFileName, samplePictFile) {
     this.samplePictFilePath = samplePictFileName
     this.samplePictFile = samplePictFile
-  }
+  },
 
-  setSamplePictPreview (samplePictPreview) {
+  setSamplePictPreview: function (samplePictPreview) {
     this.samplePictPreview = samplePictPreview
-  }
+  },
 
-  setImagePictFile (imagePictFileName, imagePictFile) {
+  setImagePictFile: function (imagePictFileName, imagePictFile) {
     this.imagePictFilePath = imagePictFileName
     this.imagePictFile = imagePictFile
-  }
+  },
 
-  setImagePictPreview (imagePictPreview) {
+  setImagePictPreview: function (imagePictPreview) {
     this.imagePictPreview = imagePictPreview
-  }
+  },
 
-  getFormData () {
+  getFormData: function () {
     const formData = new FormData()
 
     formData.append('metaDataName', this.metaDataName)
@@ -69,25 +74,25 @@ class MetaDataForm {
     formData.append('files', this.imagePictFile)
 
     return formData
-  }
+  },
 
-  validateMetaDataName () {
+  validateMetaDataName: function () {
     const errors = []
     if (!this.metaDataName || this.metaDataName.length < 1) {
       errors.push('メタデータ名を入力してください。')
     }
     return errors
-  }
+  },
 
-  validateSamplePictFilePath () {
+  validateSamplePictFilePath: function () {
     const errors = []
     if (!this.samplePictFilePath || this.samplePictFilePath.length < 1) {
       errors.push('サンプル画像を選択してください。')
     }
     return errors
-  }
+  },
 
-  validateRegistrarEmail () {
+  validateRegistrarEmail: function () {
     const errors = []
     if (!this.registrarEmail || this.registrarEmail.length < 1) {
       errors.push('登録者のメールアドレスを入力してください。')
@@ -95,5 +100,4 @@ class MetaDataForm {
     return errors
   }
 }
-
-export default MetaDataForm
+**/

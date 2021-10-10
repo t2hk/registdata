@@ -1,0 +1,13 @@
+module.exports = {
+  mode: 'jit',
+  theme: {
+    extend: {
+      width: {
+        300: '300px'
+      },
+      height: {
+        300: '300px'
+      }
+    }
+  }
+}

@@ -1,15 +1,10 @@
 <template>
-  <div class="relative pb-4">
+  <div class="bg-gray-200 sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200">
     <transition :name="transitionName" mode="out-in">
       <!-- susPageの値に応じてコンポーネントを切り替えて、擬似的にページ遷移を表現 -->
       <component
         :is="subPage"
         :form="form"
-        :metaDataName.sync="form.metaDataName"
-        :dataFilePath.sync="form.dataFilePath"
-        :registrarEmail.sync="form.registrarEmail"
-        :dataPictFilePath.sync="form.dataPictFilePath"
-        :dataPictPreview.sync="form.dataPictPreview"
         @back="back"
         @next="next"
       />

@@ -11,30 +11,30 @@ app.post('/metadata', upload.array('files'), async (req, res, next) => {
 
   const metaDataName = req.body.metaDataName
   const registrarEmail = req.body.registrarEmail
-  const dataFilePath = req.body.dataFilePath
-  const dataPictFilePath = req.body.dataPictFilePath
+  const samplePictFilePath = req.body.samplePictFilePath
+  const imagePictFilePath = req.body.imagePictFilePath
   const files = req.files
 
   console.log('メタデータ名: ', metaDataName)
   console.log('登録者メールアドレス: ', registrarEmail)
-  console.log('データファイルパス: ', dataFilePath)
-  console.log('データ画像ファイルパス: ', dataPictFilePath)
+  console.log('データファイルパス: ', samplePictFilePath)
+  console.log('データ画像ファイルパス: ', imagePictFilePath)
 
-  let dataFile = ''
-  let dataPictFile = ''
+  let samplePictFile = ''
+  let imagePictFile = ''
 
   for (let i = 0; i < files.length; i++) {
     const orgName = files[i].originalname
 
-    if (dataFilePath === orgName) {
-      dataFile = files[i]
-    } else if (dataPictFilePath === orgName) {
-      dataPictFile = files[i]
+    if (samplePictFilePath === orgName) {
+      samplePictFile = files[i]
+    } else if (imagePictFilePath === orgName) {
+      imagePictFile = files[i]
     }
   }
 
-  console.log('データファイル: ', dataFile)
-  console.log('データ画像ファイル: ', dataPictFile)
+  console.log('サンプル画像ファイル: ', samplePictFile)
+  console.log('イメージ画像ファイル: ', imagePictFile)
 
   res.send('The meta data is registered.')
 })
